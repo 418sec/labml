@@ -10,9 +10,9 @@ get_ipython: Callable
 
 def yaml_load(s: str):
     if yaml.__version__[0] >= '5':
-        return yaml.load(s, Loader=yaml.FullLoader)
+        return yaml.load(s, Loader=yaml.SafeLoader)
     else:
-        return yaml.load(s)
+        return yaml.safe_load(s)
 
 
 def yaml_dump(obj: any):
